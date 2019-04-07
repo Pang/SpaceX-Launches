@@ -12,9 +12,11 @@ export class SpacexAPIService {
 
   private ApiData = new BehaviorSubject<any>('');
   spacexData = this.ApiData.asObservable();
+  private apiPhotos = new BehaviorSubject<any>('');
+  spacexPhotos = this.apiPhotos.asObservable();
 
   getPastLaunches() {
-    return this.http.get('https://api.spacexdata.com/v3/launches/past?order=desc')
+    return this.http.get('https://api.spacexdata.com/v3/launches/past?order=desc&limit=10')
       .subscribe(
         (res: []) => {
           console.log(res);
