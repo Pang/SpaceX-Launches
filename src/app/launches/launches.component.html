@@ -1,4 +1,10 @@
-<div *ngFor="let launch of apiData">
+<h1>SpaceX Launches</h1>
+<a (click)="lastPage()">Back</a>
+ / 
+<a (click)="nextPage()">Next</a>
+<hr>
+
+<div class="launch" *ngFor="let launch of apiData">
   <h2>Flight: {{ launch.flight_number }} | {{ launch.mission_name }}</h2>
   <h3>{{ launch.launch_date_utc.slice(0, 10) }} | {{ launch.rocket.rocket_name }}</h3>
   <h4>{{ launch.launch_site.site_name_long }}</h4>
@@ -6,5 +12,4 @@
   <span *ngFor="let img of launch.links.flickr_images">
     <a href="{{ img }}"><img src="{{ img }}"></a>
   </span>
-  <hr>
 </div>

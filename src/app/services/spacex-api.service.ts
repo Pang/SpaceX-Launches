@@ -6,20 +6,15 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SpacexAPIService {
-  constructor(private http: HttpClient) {
-    this.getPastLaunches();
-   }
+  constructor(private http: HttpClient) {}
 
   private ApiData = new BehaviorSubject<any>('');
   spacexData = this.ApiData.asObservable();
-  private apiPhotos = new BehaviorSubject<any>('');
-  spacexPhotos = this.apiPhotos.asObservable();
 
-  getPastLaunches() {
-    return this.http.get('https://api.spacexdata.com/v3/launches/past?order=desc&limit=10')
+  getPastLaunches(num: number) {
+    return this.http.get(`https://api.spacexdata.com/v3/launches/past?order=desc&limit=10&offset=${num}`)
       .subscribe(
         (res: []) => {
-          console.log(res);
           this.ApiData.next(res);
         });
   }
