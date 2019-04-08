@@ -9,7 +9,7 @@ import { SpacexAPIService } from '../services/spacex-api.service';
 export class LaunchCardComponent implements OnInit {
 
   constructor(public spacexApi: SpacexAPIService) {
-    spacexApi.getPastLaunches(0);
+    spacexApi.getPastLaunches();
   }
   apiData: any[];
 

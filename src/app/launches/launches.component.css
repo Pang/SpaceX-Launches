@@ -1,23 +1,27 @@
 img {
     display: inline-block; 
     height: 100px;
+    margin: 5px;
 }
 
 .launch {
     display: inline-block; 
-    max-width: 550px;
+    max-width: 700px;
     height: 600px;
+    padding: 40px;
     vertical-align: top;
     border: solid 2px black;
+    background:rgb(192, 192, 192);
 }
 
 a {
     font-size: 20px;
     cursor: pointer;
+    color: white;
 }
 
 a:hover {
-    color: red;
+    color: rgb(0, 140, 255);
 }
 
 p {

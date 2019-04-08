@@ -11,11 +11,17 @@ export class SpacexAPIService {
   private ApiData = new BehaviorSubject<any>('');
   spacexData = this.ApiData.asObservable();
 
-  getPastLaunches(num: number) {
-    return this.http.get(`https://api.spacexdata.com/v3/launches/past?order=desc&limit=10&offset=${num}`)
-      .subscribe(
-        (res: []) => {
-          this.ApiData.next(res);
-        });
+  getPastLaunches() {
+    return this.http.get(`https://api.spacexdata.com/v3/launches/past?order=desc`)
+      .subscribe((res: []) => {
+        this.ApiData.next(res);
+      });
+  }
+
+  getSpecificLaunch(num: string) {
+    return this.http.get(`https://api.spacexdata.com/v3/launches/${num}`)
+      .subscribe((res: []) => {
+        this.ApiData.next(res);
+      });
   }
 }

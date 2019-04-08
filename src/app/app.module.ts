@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
 import { LaunchesComponent } from './launches/launches.component';
 import { AppComponent } from './app.component';
 import { LaunchCardComponent } from './launch-card/launch-card.component';
@@ -13,7 +15,12 @@ import { LaunchCardComponent } from './launch-card/launch-card.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      { path: '', component: LaunchCardComponent },
+      { path: ':LN', component: LaunchesComponent },
+      { path: '**', component: LaunchCardComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
