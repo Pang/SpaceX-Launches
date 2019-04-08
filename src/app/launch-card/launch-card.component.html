@@ -1,3 +1,7 @@
-<p>
-  launch-card works!
-</p>
+<div class="launchCard" *ngFor="let launch of apiData">
+  <div class="textBox">
+    <b>{{ launch.flight_number }} | {{ launch.mission_name }}</b><br />
+    {{ launch.launch_date_utc.slice(0, 10) }}<br />
+    {{ launch.rocket.rocket_name }}
+  </div>
+</div>

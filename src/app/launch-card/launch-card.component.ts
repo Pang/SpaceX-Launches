@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpacexAPIService } from '../services/spacex-api.service';
 
 @Component({
   selector: 'app-launch-card',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LaunchCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(public spacexApi: SpacexAPIService) {
+    spacexApi.getPastLaunches(0);
+  }
+  apiData: any[];
 
   ngOnInit() {
+    this.spacexApi.spacexData.subscribe(data => this.apiData = data);
   }
 
 }
