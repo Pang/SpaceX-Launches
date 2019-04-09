@@ -10,14 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 export class LaunchesComponent implements OnInit {
   constructor(private route: ActivatedRoute, public spacexApi: SpacexAPIService) {
     spacexApi.getSpecificLaunch(this.route.snapshot.paramMap.get('LN'));
-    console.log('constructor');
   }
-  apiData: any[];
-  launchOffset = 0;
+  apiData: any;
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.spacexApi.spacexData.subscribe(data => this.apiData = data);
-    console.log('onInit');
-
   }
 }

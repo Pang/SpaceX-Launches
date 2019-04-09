@@ -11,7 +11,7 @@ export class LaunchCardComponent implements OnInit {
   constructor(public spacexApi: SpacexAPIService) {
     spacexApi.getPastLaunches();
   }
-  apiData: any[];
+  apiData: any;
 
   ngOnInit() {
     this.spacexApi.spacexData.subscribe(data => this.apiData = data);

@@ -19,8 +19,9 @@ import { LaunchCardComponent } from './launch-card/launch-card.component';
     RouterModule.forRoot([
       { path: '', component: LaunchCardComponent },
       { path: ':LN', component: LaunchesComponent },
-      { path: '**', component: LaunchCardComponent}
-    ])
+      { path: '**', component: LaunchCardComponent},
+    ],
+    { useHash: true }),
   ],
   providers: [],
   bootstrap: [AppComponent]

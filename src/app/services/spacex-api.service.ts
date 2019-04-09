@@ -13,14 +13,14 @@ export class SpacexAPIService {
 
   getPastLaunches() {
     return this.http.get(`https://api.spacexdata.com/v3/launches/past?order=desc`)
-      .subscribe((res: []) => {
+      .subscribe((res) => {
         this.ApiData.next(res);
       });
   }
 
   getSpecificLaunch(num: string) {
     return this.http.get(`https://api.spacexdata.com/v3/launches/${num}`)
-      .subscribe((res: []) => {
+      .subscribe((res) => {
         this.ApiData.next(res);
       });
   }
