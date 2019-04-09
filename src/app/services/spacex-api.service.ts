@@ -24,4 +24,11 @@ export class SpacexAPIService {
         this.ApiData.next(res);
       });
   }
+
+  getFutureLaunches() {
+    return this.http.get(`https://api.spacexdata.com/v3/launches/upcoming`)
+      .subscribe((res) => {
+        this.ApiData.next(res);
+      });
+  }
 }

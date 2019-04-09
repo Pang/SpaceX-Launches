@@ -1,0 +1,7 @@
+<a [routerLink]="['']">Home</a><br />
+
+<div id="futureLaunches" *ngFor="let launch of apiData">
+  <b>{{ launch.flight_number }} | {{ launch.mission_name }}</b><br />
+  {{ launch.launch_date_utc.slice(0, 10) }}<br />
+  {{ launch.rocket.rocket_name }}<br />
+</div>

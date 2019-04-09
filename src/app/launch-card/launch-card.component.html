@@ -1,9 +1,9 @@
 <p>
     This application aggregates data straight from the SpaceX API, 
-    meaning any new launches will be added automatically.
+    meaning any new launches will be added automatically. <a routerLink="upcoming">Click here</a> to see all future launches
 </p>
 <div class="container">
-  <div class="launchCard" *ngFor="let launch of apiData" [routerLink]="['/', launch.flight_number]">
+  <div class="launchCard" *ngFor="let launch of apiData" [routerLink]="['launch', launch.flight_number]">
     <div class="textBox">
       <b>{{ launch.flight_number }} | {{ launch.mission_name }}</b><br /><br />
       {{ launch.launch_date_utc.slice(0, 10) }}<br />
