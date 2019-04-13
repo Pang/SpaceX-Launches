@@ -6,6 +6,4 @@ export interface ILaunches {
     launch_site: string;
     details: string;
     links: [];
-    sgre: string;
-
 }
