@@ -6,14 +6,11 @@ import { SpacexAPIService } from '../services/spacex-api.service';
   templateUrl: './future-launches.component.html',
   styleUrls: ['./future-launches.component.css']
 })
-export class FutureLaunchesComponent implements OnInit {
+export class FutureLaunchesComponent {
   constructor(private spacexAPI: SpacexAPIService) {
-    this.spacexAPI.getFutureLaunches();
+    this.spacexAPI.getFutureLaunches()
+        .subscribe(data => this.apiData = data);
   }
   apiData: any;
-
-  ngOnInit() {
-    this.spacexAPI.spacexData.subscribe(data => this.apiData = data);
-  }
 
 }

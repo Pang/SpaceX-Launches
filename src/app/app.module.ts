@@ -19,7 +19,7 @@ import { FutureLaunchesComponent } from './future-launches/future-launches.compo
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: LaunchCardComponent },
+      { path: '', pathMatch: 'full', component: LaunchCardComponent },
       { path: 'launch/:LN', component: LaunchesComponent },
       { path: 'upcoming', component: FutureLaunchesComponent},
     ],

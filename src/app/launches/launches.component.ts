@@ -7,13 +7,11 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './launches.component.html',
   styleUrls: ['./launches.component.css']
 })
-export class LaunchesComponent implements OnInit {
+export class LaunchesComponent {
   constructor(private route: ActivatedRoute, public spacexApi: SpacexAPIService) {
-    spacexApi.getSpecificLaunch(this.route.snapshot.paramMap.get('LN'));
+    spacexApi.getSpecificLaunch(this.route.snapshot.paramMap.get('LN'))
+              .subscribe(data => this.apiData = data);
   }
   apiData: any;
 
-  ngOnInit() {
-    this.spacexApi.spacexData.subscribe(data => this.apiData = data);
-  }
 }
